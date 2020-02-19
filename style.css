@@ -44,9 +44,27 @@ main {
 }
 
 .chat-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     width: 100%;
     height: 100%;
-    padding: 0 15px;
+    padding: 30px 20px;
+    background-color: wheat;
+}
+
+.list-of-messages {
+    width: 100%;
+    list-style-type: none;
+}
+
+.message {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80px;
 }
 
 .send-message {
