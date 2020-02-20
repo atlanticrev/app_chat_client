@@ -30,10 +30,12 @@ class MessageList extends EventTarget {
         this.list = domElement;
     }
 
-    _buildMessageTemplate (messageText) {
-        return `<div class="message-item message-from-me">
-            <h3>Message #${MessageList.messageCounter++}</h3>
-            <p>${messageText}</p>        
+    _buildMessageTemplate (messageText, fromMe = true) {
+        const date = this.date;
+
+        return `<div class="message ${fromMe ? 'message-from-me' : ''}">
+            <p class="message-body">${messageText}</p>
+            <span class="message-date">${date.hours}.${date.minutes}</span>        
         </div>`;
     }
 
@@ -43,13 +45,23 @@ class MessageList extends EventTarget {
         }
 
         const messageNode = document.createElement('div');
-        messageNode.className = 'message';
+        messageNode.className = 'message-box';
         messageNode.innerHTML = this._buildMessageTemplate(messageText);
 
         this.list.append(messageNode);
         messageNode.scrollIntoView();
 
         this.dispatchEvent(new Event('messageList.addMessage'));
+    }
+
+    get date () {
+        const date = new Date();
+        const hours = date.getHours();
+        const minutes = date.getMinutes() < 10
+            ? `0${date.getMinutes()}`
+            : date.getMinutes();
+
+        return {hours, minutes};
     }
 
     // removeListElement () {
@@ -65,5 +77,3 @@ class MessageList extends EventTarget {
     // }
 
 }
-
-MessageList.messageCounter = 1;
