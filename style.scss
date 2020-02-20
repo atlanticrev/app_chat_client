@@ -1,0 +1,70 @@
+@import "./sass/layout";
+@import "./sass/controls";
+
+.chat-window {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 100%;
+    /* @todo Убрать жесткую высоту */
+    height: 580px;
+    padding: 10px;
+}
+
+.list-of-messages {
+    width: 100%;
+    list-style-type: none;
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    /* @todo Hiding scrollbar will not work in firefox */
+    &::-webkit-scrollbar {
+        display: none;
+    }
+
+    -ms-overflow-style: none;
+}
+
+.message-box {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 10px;
+    justify-content: center;
+    //background-color: wheat;
+
+    /* Complex expression for performance */
+    &:not(:last-child) {
+        margin-bottom: 5px;
+    }
+
+    .message {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-end;
+        max-width: 70%;
+        background-color: #F2F3F5;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 20px;
+        border-bottom-right-radius: 0;
+
+        &-from-me {
+            align-self: flex-end;
+            background: linear-gradient(-45deg, #7B93CE, #79B698);
+        }
+
+        /* @todo Текст должен переноситься если его слишком много */
+        .message-body {
+            width: 100%;
+            display: block;
+        }
+
+        .message-date {
+            font-style: italic;
+            font-size: 12px;
+        }
+    }
+}
