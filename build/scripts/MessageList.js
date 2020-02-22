@@ -7,6 +7,7 @@ export default class MessageList extends EventTarget {
 
     _buildMessageTemplate (messageText, fromMe = true) {
         /* @todo сюда надо подставлять время поста из базы */
+        /* @todo определиться с форматом сообщения */
         const date = this.date;
         return `<div class="message ${fromMe ? 'message-from-me' : ''}">
             <p class="message-body">${messageText}</p>

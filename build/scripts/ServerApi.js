@@ -1,6 +1,10 @@
 export default class ServerApi {
     constructor(url) {
         this.url = url;
+        this.socket = null;
+    }
+
+    openConnection () {
         this.socket = new WebSocket(this.url);
         this.socket.onopen = () => {
             console.log('Соединение установлено');
@@ -13,6 +17,7 @@ export default class ServerApi {
         };
         this.socket.onmessage = (e) => {
             const message = e.data;
+            console.log(message);
         };
     }
 
