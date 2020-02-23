@@ -1,7 +1,11 @@
-export default class ServerApi {
-    constructor(url) {
+export default class WebsocketApi extends EventTarget {
+
+    constructor(url, messageList) {
+        super();
         this.url = url;
         this.socket = null;
+        this.messageList = messageList;
+        this.addEventListener('messageSend', this.sendMessage);
     }
 
     openConnection () {
@@ -17,15 +21,18 @@ export default class ServerApi {
         };
         this.socket.onmessage = (e) => {
             const message = e.data;
-            console.log(message);
+            console.log(`${this.constructor.name} received message <-`, message);
+            this.messageList.dispatchEvent(new CustomEvent('messageReceived', {detail: {message}}));
         };
     }
 
-    sendMessage (message) {
-        this.socket.send(message);
+    sendMessage (e) {
+        console.log(`${this.constructor.name} sending message ->`, e.detail.message);
+        this.socket.send(e.detail.message);
     }
 
     closeConnection () {
         this.socket.close();
     }
+
 }

@@ -3,9 +3,15 @@ export default class MessageList extends EventTarget {
     constructor(domElement) {
         super();
         this.list = domElement;
+        this.addEventListener('messageReceived', this.onMessageReceived);
     }
 
-    _buildMessageTemplate (messageText, fromMe = true) {
+    onMessageReceived (e) {
+        console.log(`${this.constructor.name} received message <-`, e.detail.message);
+        this.addListElement(e.detail.message, {fromMe: false});
+    }
+
+    _buildMessageTemplate (messageText, fromMe) {
         /* @todo сюда надо подставлять время поста из базы */
         /* @todo определиться с форматом сообщения */
         const date = this.date;
@@ -15,14 +21,15 @@ export default class MessageList extends EventTarget {
         </div>`;
     }
 
-    addListElement (messageText) {
+    addListElement (messageText, options = {fromMe: true}) {
         if (!messageText) {
             return;
         }
         const messageNode = document.createElement('div');
         messageNode.className = 'message-box';
-        messageNode.innerHTML = this._buildMessageTemplate(messageText);
+        messageNode.innerHTML = this._buildMessageTemplate(messageText, options.fromMe);
         this.list.append(messageNode);
+
         messageNode.scrollIntoView();
         this.dispatchEvent(new Event('messageList.addMessage'));
     }

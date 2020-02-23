@@ -46,14 +46,17 @@
         align-items: flex-end;
         max-width: 70%;
         background-color: #F2F3F5;
-        color: white;
+        color: black;
         padding: 10px 20px;
         border-radius: 20px;
-        border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
 
         &-from-me {
             align-self: flex-end;
             background: linear-gradient(-45deg, #7B93CE, #79B698);
+            color: white;
+            border-radius: 20px;
+            border-bottom-right-radius: 0;
         }
 
         /* @todo Текст должен переноситься если его слишком много */
