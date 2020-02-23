@@ -58,11 +58,3 @@ export default class Chat {
     }
 
 }
-
-// Chat.CONTACT_ID = Math.floor(Math.random() * 50 + 1);
-// Chat.ID = 1;
-// Chat.CONTACT_ID = 2;
-// Chat.ID = 2;
-// Chat.CONTACT_ID = 1;
-// Chat.WS_URL = `ws://localhost:8080/${Chat.ID}`;
-// Chat.WS_URL = `ws://localhost:3000/${Chat.ID}`;
