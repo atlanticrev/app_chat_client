@@ -5,7 +5,7 @@
   "main": "build/script.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon server.js"
+    "start": "nodemon websocketServer.js"
   },
   "repository": {
     "type": "git",

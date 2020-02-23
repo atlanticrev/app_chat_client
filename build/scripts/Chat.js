@@ -1,5 +1,6 @@
 import MessageList from "./MessageList.js";
 import WebsocketApi from "./WebsocketApi.js";
+import config from "./config/config.js";
 
 export default class Chat {
 
@@ -15,7 +16,7 @@ export default class Chat {
         this.messageListElement = document.querySelector('.list-of-messages');
 
         this.messageList = new MessageList(this.messageListElement);
-        this.websocketApi = new WebsocketApi(Chat.WS_URL, this.messageList);
+        this.websocketApi = new WebsocketApi(config.WEBSOCKET_URL, this.messageList);
 
         this.sendButtonElement.addEventListener('click', this.onSendButtonPush);
         document.addEventListener('keydown', this.onPressEnter);
@@ -31,7 +32,7 @@ export default class Chat {
      */
     _buildMessageTemplate (message) {
         return JSON.stringify({
-            contact_id: Chat.CONTACT_ID,
+            contact_id: config.CONTACT_ID,
             message_data: message
         });
     }
@@ -59,8 +60,9 @@ export default class Chat {
 }
 
 // Chat.CONTACT_ID = Math.floor(Math.random() * 50 + 1);
-Chat.ID = 1;
-Chat.CONTACT_ID = 2;
+// Chat.ID = 1;
+// Chat.CONTACT_ID = 2;
 // Chat.ID = 2;
 // Chat.CONTACT_ID = 1;
-Chat.WS_URL = `ws://localhost:8080/${Chat.ID}`;
+// Chat.WS_URL = `ws://localhost:8080/${Chat.ID}`;
+// Chat.WS_URL = `ws://localhost:3000/${Chat.ID}`;

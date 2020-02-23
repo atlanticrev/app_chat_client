@@ -4,26 +4,27 @@ const Websocket = require('websocket').server;
 
 const app = express();
 
-//initialize a simple http server
-const server = http.createServer(app);
+const websocketServer = http.createServer(app);
 
-const ws = new Websocket({
-    httpServer: server,
+const websocketServerUpgraded = new Websocket({
+    httpServer: websocketServer,
     autoAcceptConnections: false
 });
 
+/* @todo Если мы различаем connections с из разных вкладок,
+     то вытащить информацию оттуда чтобы точечно посылать сообщения */
 const clients = [];
 
-ws.on('request', (request) => {
-    /* @todo Фильтровать клиентов, недопускать повторного подключения того же клиента */
+websocketServerUpgraded.on('request', (request) => {
+    /* @todo Фильтровать клиентов,
+         недопускать повторного подключения того же клиента */
     const connection = request.accept('', request.origin);
     clients.push(connection);
-    console.log(`connected: ${connection.remoteAddress}`, clients.length);
+    console.log(`connected from address: ${connection.remoteAddress}`);
 
     connection.on('message', (message) => {
         const dataName = `${message.type}Data`;
         const data = message[dataName];
-        // console.dir(data);
         console.log(`received: ${data}`,);
 
         /* Broadcasting */
@@ -47,23 +48,7 @@ app.get('/', (request, response) => {
     response.sendFile(`${__dirname}/index.html`);
 });
 
-//start our server
-server.listen(3000, () => {
+//start our websocketServer
+websocketServer.listen(3000, () => {
     console.log(`listen -> port: 3000`);
 });
-
-
-// Old version
-// const http = require('http');
-// const fs = require('fs');
-//
-// const server = http.createServer((request, response) => {
-//     console.log(`request -> `, request.url);
-//     response.writeHead(200, {'Content-type': 'text/html'});
-//
-//     const readStream = fs.createReadStream(`${__dirname}/index.html`, 'utf8');
-//     readStream.pipe(response);
-// });
-//
-// server.listen(3000);
-// console.log(`listen -> port: 3000`);
