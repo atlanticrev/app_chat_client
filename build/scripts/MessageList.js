@@ -31,7 +31,7 @@ export default class MessageList extends EventTarget {
         this.list.append(messageNode);
 
         messageNode.scrollIntoView();
-        this.dispatchEvent(new Event('messageList.addMessage'));
+        // this.dispatchEvent(new Event('messageList.addMessage'));
     }
 
     get date () {
