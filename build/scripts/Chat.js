@@ -32,8 +32,9 @@ export default class Chat {
      */
     _buildMessageTemplate (message) {
         return JSON.stringify({
-            contact_id: config.CONTACT_ID,
-            message_data: message
+            sender: config.ID,
+            receiver: config.CONTACT_ID,
+            data: message
         });
     }
 

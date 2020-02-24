@@ -20,7 +20,7 @@ export default class WebsocketApi extends EventTarget {
             console.log('Произошла ошибка');
         };
         this.socket.onmessage = (e) => {
-            const message = JSON.parse(e.data).message_data;
+            const message = JSON.parse(e.data).data;
             console.log(`${this.constructor.name} received message <-`, message);
             this.messageList.dispatchEvent(new CustomEvent('messageReceived', {detail: {message}}));
         };

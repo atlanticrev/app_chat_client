@@ -1,4 +1,5 @@
 export default {
-    WEBSOCKET_URL: `ws://localhost:3000`,
-    CONTACT_ID: 2
+    ID: 1,
+    CONTACT_ID: 2,
+    WEBSOCKET_URL: `ws://localhost:8080/ws/1`,
 }
