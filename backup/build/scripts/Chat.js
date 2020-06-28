@@ -30,7 +30,7 @@ export default class Chat {
      * @return {string}
      * @private
      */
-    _buildMessageTemplate (message) {
+    _formMessage (message) {
         return JSON.stringify({
             sender: config.ID,
             receiver: config.CONTACT_ID,
@@ -40,7 +40,7 @@ export default class Chat {
 
     sendMessage () {
         this.messageInputElement.focus();
-        this.websocketApi.dispatchEvent(new CustomEvent('messageSend', {detail: {message: this._buildMessageTemplate(this.messageInputElement.value)}}));
+        this.websocketApi.dispatchEvent(new CustomEvent('messageSend', {detail: {message: this._formMessage(this.messageInputElement.value)}}));
         /* @todo Сделать по событию */
         this.messageList.addListElement(this.messageInputElement.value);
         this.messageInputElement.value = '';
