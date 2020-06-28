@@ -23,6 +23,7 @@
   "homepage": "https://github.com/atlanticrev/Chat_client#readme",
   "dependencies": {
     "express": "^4.17.1",
+    "lit-element": "^2.3.1",
     "nodemon": "^2.0.2",
     "websocket": "^1.0.31"
   },

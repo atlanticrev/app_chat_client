@@ -1,12 +1,6 @@
+import ChatWindow from "./src/components/ChatWindow/ChatWindow";
+
 import './src/styles/index.scss';
 
-function addEl () {
-    const el = document.createElement('p');
-    el.className = 'test-element';
-    el.textContent = 'Hello';
-    document.body.appendChild(el);
-}
-
-document.body.classList.add('new');
-
-addEl();
+const el = document.createElement('chat-window');
+document.body.appendChild(el);
