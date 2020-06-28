@@ -1,5 +1,6 @@
 @import "layout";
 @import "controls";
+@import "constants";
 
 .chat-window {
     display: flex;
@@ -7,8 +8,7 @@
     align-items: center;
     justify-content: flex-end;
     width: 100%;
-    /* @todo Убрать жесткую высоту */
-    height: 580px;
+    height: 75%;
     padding: 10px;
 }
 

@@ -1,3 +1,5 @@
+@import "constants";
+
 * {
   margin: 0;
   padding: 0;
@@ -8,7 +10,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(-45deg, #7B93CE, #79B698);
+  background: linear-gradient(-45deg, #404653, #9c9fa6);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,11 +22,13 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   /* Размеры окна чата */
   min-width: 400px;
   max-width: 1200px;
-  min-height: 700px;
-  background-color: white;
-  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  min-height: 860px;
+  background-color: $body-background;
+  border-radius: 45px;
+  //box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  box-shadow: 0 19px 38px rgba(0,0,0,0.30), 0 15px 12px rgba(0,0,0,0.22);
 }

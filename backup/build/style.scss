@@ -1,0 +1,156 @@
+@charset "UTF-8";
+/**
+ * Colors
+ */
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+  background: linear-gradient(-45deg, #404653, #9c9fa6);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-family: "Ubuntu", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  /* Размеры окна чата */
+  min-width: 400px;
+  max-width: 1200px;
+  min-height: 860px;
+  background-color: #292f3f;
+  border-radius: 45px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+/**
+ * Colors
+ */
+.controls {
+  width: 100%;
+  height: 8%;
+  padding: 0 20px;
+}
+
+.bottom-controls {
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom-controls .message-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #1f232f;
+  width: 70%;
+  height: 70%;
+  border-radius: 20px;
+  /*.message-input > input:focus {*/
+  /*    color: rgba(0, 0, 0, .4);*/
+  /*}*/
+}
+.bottom-controls .message-input > input {
+  width: 90%;
+  outline: none;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  font-family: "Ubuntu", sans-serif;
+}
+.bottom-controls .message-input > input::placeholder {
+  color: white;
+}
+.bottom-controls .send-button {
+  background: #1f232f;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  outline: none;
+  color: white;
+  font-size: 15px;
+  font-family: "Ubuntu", sans-serif;
+  cursor: pointer;
+}
+.bottom-controls .send-button:hover {
+  opacity: 0.9;
+}
+
+/**
+ * Colors
+ */
+.chat-window {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  width: 100%;
+  height: 75%;
+  padding: 10px;
+}
+
+.list-of-messages {
+  width: 100%;
+  list-style-type: none;
+  overflow-x: hidden;
+  overflow-y: auto;
+  /* @todo Hiding scrollbar will not work in firefox */
+  -ms-overflow-style: none;
+}
+.list-of-messages::-webkit-scrollbar {
+  display: none;
+}
+
+.message-box {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0 10px;
+  justify-content: center;
+  /* Complex expression for performance */
+}
+.message-box:not(:last-child) {
+  margin-bottom: 5px;
+}
+.message-box .message {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  max-width: 70%;
+  background-color: #F2F3F5;
+  color: black;
+  padding: 10px 20px;
+  border-radius: 20px;
+  border-bottom-left-radius: 0;
+  /* @todo Текст должен переноситься если его слишком много */
+}
+.message-box .message-from-me {
+  align-self: flex-end;
+  background: linear-gradient(-45deg, #7B93CE, #79B698);
+  color: white;
+  border-radius: 20px;
+  border-bottom-right-radius: 0;
+}
+.message-box .message .message-body {
+  width: 100%;
+  display: block;
+}
+.message-box .message .message-date {
+  font-style: italic;
+  font-size: 12px;
+}
+
+/*# sourceMappingURL=style.scss.map */

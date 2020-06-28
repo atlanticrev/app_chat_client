@@ -1,4 +1,7 @@
 @charset "UTF-8";
+/**
+ * Colors
+ */
 * {
   margin: 0;
   padding: 0;
@@ -9,7 +12,7 @@
 body {
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(-45deg, #7B93CE, #79B698);
+  background: linear-gradient(-45deg, #404653, #9c9fa6);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -21,15 +24,19 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
   /* Размеры окна чата */
   min-width: 400px;
   max-width: 1200px;
-  min-height: 700px;
-  background-color: white;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  min-height: 860px;
+  background-color: #292f3f;
+  border-radius: 45px;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
 }
 
+/**
+ * Colors
+ */
 .controls {
   width: 100%;
   height: 8%;
@@ -41,18 +48,16 @@ main {
   flex-flow: row nowrap;
   justify-content: space-between;
   align-items: center;
-  border-top: 1px solid lightgray;
 }
 .bottom-controls .message-input {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background-color: #F7F7F7;
+  background-color: #1f232f;
   width: 70%;
   height: 70%;
   border-radius: 20px;
-  border: 1px solid lightgray;
   /*.message-input > input:focus {*/
   /*    color: rgba(0, 0, 0, .4);*/
   /*}*/
@@ -60,21 +65,21 @@ main {
 .bottom-controls .message-input > input {
   width: 90%;
   outline: none;
-  background-color: #F7F7F7;
-  color: black;
+  background-color: transparent;
+  color: white;
   font-size: 15px;
   font-family: "Ubuntu", sans-serif;
 }
 .bottom-controls .message-input > input::placeholder {
-  color: rgba(0, 0, 0, 0.5);
+  color: white;
 }
 .bottom-controls .send-button {
-  background: linear-gradient(-45deg, #7B93CE, #79B698);
-  width: 25%;
-  height: 70%;
-  border-radius: 20px;
+  background: #1f232f;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
   outline: none;
-  color: rgba(255, 255, 255, 0.8);
+  color: white;
   font-size: 15px;
   font-family: "Ubuntu", sans-serif;
   cursor: pointer;
@@ -83,14 +88,16 @@ main {
   opacity: 0.9;
 }
 
+/**
+ * Colors
+ */
 .chat-window {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-end;
   width: 100%;
-  /* @todo Убрать жесткую высоту */
-  height: 580px;
+  height: 75%;
   padding: 10px;
 }
 
